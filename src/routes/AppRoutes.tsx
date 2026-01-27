@@ -9,6 +9,8 @@ import HeritageStory from '../pages/HeritageStory';
 import Settings from '../pages/Settings';
 import CustomerSupport from '../pages/CustomerSupport';
 import Cart from '../pages/Cart';
+import Curated from '../pages/Curated';
+import ProductDetails from '../pages/ProductDetails';
 
 const AppRoutes: React.FC = () => {
   return (
@@ -23,6 +25,8 @@ const AppRoutes: React.FC = () => {
         <Route path="/settings" element={<Settings />} />
         <Route path="/support" element={<CustomerSupport />} />
         <Route path="/cart" element={<Cart />} />
+        <Route path="/curated" element={<Curated />} />
+        <Route path="/product/:id" element={<ProductDetails />} />
       </Routes>
     </Router>
   );
