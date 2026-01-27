@@ -79,7 +79,7 @@ const Cart: React.FC = () => {
             <div className="relative flex items-center">
               <span className="material-symbols-outlined absolute left-4 text-slate-400">confirmation_number</span>
               <input 
-                className="w-full pl-12 pr-28 py-4 bg-white dark:bg-surface-dark border-none rounded-full shadow-sm focus:ring-2 focus:ring-primary/20 placeholder:text-slate-400 dark:placeholder:text-slate-600 transition-all text-sm font-medium outline-none" 
+                className="w-full pl-12 pr-28 py-4 bg-white dark:bg-surface-dark border-none rounded-full shadow-sm focus:ring-2 focus:ring-primary/20 placeholder:text-slate-400 dark:placeholder:text-slate-600 transition-all text-base font-medium outline-none" 
                 placeholder="Enter coupon code" 
                 type="text"
               />

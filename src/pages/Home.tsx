@@ -45,7 +45,7 @@ const Home: React.FC = () => {
           <div className="relative">
             <span className="material-symbols-outlined absolute left-4 top-1/2 -translate-y-1/2 text-slate-400">search</span>
             <input 
-              className="w-full h-12 pl-12 pr-4 bg-surface-light dark:bg-surface-dark border-none rounded-2xl shadow-sm focus:ring-2 focus:ring-primary/20 placeholder:text-slate-400 text-sm outline-none" 
+              className="w-full h-12 pl-12 pr-4 bg-surface-light dark:bg-surface-dark border-none rounded-2xl shadow-sm focus:ring-2 focus:ring-primary/20 placeholder:text-slate-400 text-base outline-none" 
               placeholder="Search for artisanal treasures..." 
               type="text"
             />
