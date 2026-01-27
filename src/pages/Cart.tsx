@@ -4,7 +4,7 @@ import { useCartStore } from '../store/useCartStore';
 
 const Cart: React.FC = () => {
   const navigate = useNavigate();
-  const { items, increaseQuantity, decreaseQuantity, removeFromCart, clearCart, getTotalPrice } = useCartStore();
+  const { items, increaseQuantity, decreaseQuantity, clearCart, getTotalPrice } = useCartStore();
 
   const subtotal = getTotalPrice();
   const deliveryFee = 0; // Free

@@ -1,3 +1,7 @@
+import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
+import NavDrawer from '../components/NavDrawer';
+import BottomNav from '../components/BottomNav';
 import { bestsellers, specials, teas, featuredHero } from '../data/mockData';
 
 const Home: React.FC = () => {
@@ -137,21 +141,20 @@ const Home: React.FC = () => {
             <button className="text-primary text-sm font-semibold">Explore Origin</button>
           </div>
           <div className="grid grid-cols-2 gap-4">
-            {[
-              { name: 'Grade A++ Saffron', price: '₹950', img: 'https://lh3.googleusercontent.com/aida-public/AB6AXuCxSJZGoR_5e5S1CCqrCThMfZBt8yc7DzUw4QaJqBT01tsnV01c96JdDmzCPmc2LUV6-1Xvhf9-pkpgMxzVKEo3ZRPGkrdwPtwKuH5g_JGYPsuBtN1mSvGoq8P_6Kh9UxobRGI3UPLtVkH3pU4NZusOAF6Q8pNPZdn9zMzWm8KxzhvbUfbF_5wZZDWI_o3M_JCsC16IFMgtiU4q9jhok9SFqq6IvT5RHoyI87jOqNELyWQLF1t9ws9FScLhj_tC9MCRHr7-f8uPrDeW' },
-              { name: 'Paper Shell Walnuts', price: '₹720', img: 'https://lh3.googleusercontent.com/aida-public/AB6AXuBKm5ISPM5NdtBSS2NqvHKrx7-KT7RqGQuFmueBKW9os8MvlMfCYg0Va-6c5WT0KA6n7ke4Cn05C0SaoATBqdTX5v0UWP5NzlVyTR3ESsFeClJgUH9FxVoOJGaGaCrA8Ebw8YnQOyCVgV1Ymj_MypXF7IF0L-10p6qARvYV2dHwn7Ym4OJ_V5CNYibyS9dU-D1xqcME4gUqB3nidv1hhLipQ_6zSdd7JU4Gb_lMkrNe3kP9vcBlbzJuDVuSDwQabnFFZF1ArNiSktay' },
-              { name: 'Gurbandi Almonds', price: '₹880', img: 'https://lh3.googleusercontent.com/aida-public/AB6AXuBX_ogqsH15gyJ0rqisNq2HOceEpGf_pFoaQPDusjzY0fc9nbGsy6VjgBhz0CtPuiUh6B6eW0Q_TvubMOeDfkRm2p-JYEzi-WphkqndZ7ZCYZuGj_mtM-JNWRdJmpqhVQMAw6HvRXNptg9-pO28jLaJuZ-MJhJBOtK7Y1kgQhWg5f6B4ONVx2rR05HEfziZU3NJt0Eb624H9PU6D5p-InLYIWSOpkB_i6Oo36C392-tFsoB_J0aT2aGkvkQmwVROwNZ9P1peirRC1dZ' },
-              { name: 'Saffron Kahwa Tea', price: '₹495', img: 'https://lh3.googleusercontent.com/aida-public/AB6AXuCZG9TTp-DjuymfgNOkEl3krU4Pt6ncG2aSE5cQRo9bP8mwkjSsu8o5znx5LTRXRkXLjU1Dz8fLdrLcvbl2TJbU4qCXqO-_m0pC81K8lkX6I3SIvfdna-qPmKoVhMozHaJAwYPe56rp6WJ_B8uC2tSiPu8apdxJCktR2-Cs_KBNEjsC9MAriO94X3rkjU6judybCe9LzcnnzE2dj1PdnkuE-mu_j90W7E9Vjs2z-fU0yFvXbaXb-BAjQwPHwoUa8LEJXmLbsv2YtFjv' },
-            ].map((special, i) => (
-              <div key={i} className="bg-surface-light dark:bg-surface-dark flex flex-col rounded-3xl p-4 shadow-sm border border-slate-50 dark:border-slate-800">
+            {specials.map((special, i) => (
+              <div 
+                key={i} 
+                className="bg-surface-light dark:bg-surface-dark flex flex-col rounded-3xl p-4 shadow-sm border border-slate-50 dark:border-slate-800 cursor-pointer active:scale-95 transition-transform"
+                onClick={() => navigate(`/product/${special.id}`)}
+              >
                 <div className="aspect-square rounded-2xl overflow-hidden mb-3 flex-shrink-0">
-                  <img alt={special.name} className="w-full h-full object-cover" src={special.img}/>
+                  <img alt={special.name} className="w-full h-full object-cover" src={special.image}/>
                 </div>
                 <div className="h-10 mb-1">
                   <h4 className="font-bold text-sm leading-tight line-clamp-2">{special.name}</h4>
                 </div>
                 <div className="mt-auto">
-                    <p className="text-primary font-bold">{special.price}</p>
+                    <p className="text-primary font-bold">₹{special.price}</p>
                     <button className="mt-3 w-full py-2.5 bg-white dark:bg-white text-primary border border-primary/20 rounded-xl text-xs font-bold active:bg-primary active:text-white transition-colors">Add to Cart</button>
                 </div>
               </div>
