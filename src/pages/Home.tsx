@@ -144,7 +144,7 @@ const Home: React.FC = () => {
                 </div>
                 <div className="mt-auto">
                     <p className="text-primary font-bold">{special.price}</p>
-                    <button className="mt-3 w-full py-2.5 bg-slate-50 dark:bg-slate-900 text-primary border border-primary/20 rounded-xl text-xs font-bold active:bg-primary active:text-white transition-colors">Add to Cart</button>
+                    <button className="mt-3 w-full py-2.5 bg-white dark:bg-white text-primary border border-primary/20 rounded-xl text-xs font-bold active:bg-primary active:text-white transition-colors">Add to Cart</button>
                 </div>
               </div>
             ))}
