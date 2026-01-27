@@ -42,9 +42,9 @@ const NavDrawer: React.FC<NavDrawerProps> = ({ isOpen, onClose }) => {
           </div>
         </div>
 
-        <nav className="flex-1 px-4 py-8 space-y-2 overflow-y-auto no-scrollbar">
+        <nav className="flex-1 px-4 py-4 space-y-1 overflow-y-auto no-scrollbar">
           <Link 
-            className="flex items-center gap-4 px-4 py-3.5 rounded-2xl bg-primary/10 text-primary group" 
+            className="flex items-center gap-4 px-4 py-3 rounded-2xl bg-primary/10 text-primary group transition-all" 
             to="/" 
             onClick={onClose}
           >
@@ -52,7 +52,7 @@ const NavDrawer: React.FC<NavDrawerProps> = ({ isOpen, onClose }) => {
             <span className="font-bold text-[15px]">Home</span>
           </Link>
           <Link 
-            className="flex items-center gap-4 px-4 py-3.5 rounded-2xl text-slate-600 dark:text-slate-300 hover:bg-slate-50 dark:hover:bg-slate-800/50 transition-colors" 
+            className="flex items-center gap-4 px-4 py-3 rounded-2xl text-slate-600 dark:text-slate-300 hover:bg-slate-50 dark:hover:bg-slate-800/50 transition-colors" 
             to="/shop" 
             onClick={onClose}
           >
@@ -60,7 +60,7 @@ const NavDrawer: React.FC<NavDrawerProps> = ({ isOpen, onClose }) => {
             <span className="font-semibold text-[15px]">Shop by Category</span>
           </Link>
           <Link 
-            className="flex items-center gap-4 px-4 py-3.5 rounded-2xl text-slate-600 dark:text-slate-300 hover:bg-slate-50 dark:hover:bg-slate-800/50 transition-colors" 
+            className="flex items-center gap-4 px-4 py-3 rounded-2xl text-slate-600 dark:text-slate-300 hover:bg-slate-50 dark:hover:bg-slate-800/50 transition-colors" 
             to="/orders" 
             onClick={onClose}
           >
@@ -68,7 +68,7 @@ const NavDrawer: React.FC<NavDrawerProps> = ({ isOpen, onClose }) => {
             <span className="font-semibold text-[15px]">My Orders</span>
           </Link>
           <Link 
-            className="flex items-center gap-4 px-4 py-3.5 rounded-2xl text-slate-600 dark:text-slate-300 hover:bg-slate-50 dark:hover:bg-slate-800/50 transition-colors" 
+            className="flex items-center gap-4 px-4 py-3 rounded-2xl text-slate-600 dark:text-slate-300 hover:bg-slate-50 dark:hover:bg-slate-800/50 transition-colors" 
             to="/subscription" 
             onClick={onClose}
           >
@@ -76,7 +76,7 @@ const NavDrawer: React.FC<NavDrawerProps> = ({ isOpen, onClose }) => {
             <span className="font-semibold text-[15px]">Subscription Box</span>
           </Link>
           <Link 
-            className="flex items-center gap-4 px-4 py-3.5 rounded-2xl text-slate-600 dark:text-slate-300 hover:bg-slate-50 dark:hover:bg-slate-800/50 transition-colors" 
+            className="flex items-center gap-4 px-4 py-3 rounded-2xl text-slate-600 dark:text-slate-300 hover:bg-slate-50 dark:hover:bg-slate-800/50 transition-colors" 
             to="/saved" 
             onClick={onClose}
           >
@@ -84,7 +84,7 @@ const NavDrawer: React.FC<NavDrawerProps> = ({ isOpen, onClose }) => {
             <span className="font-semibold text-[15px]">Saved Treasures</span>
           </Link>
           <Link 
-            className="flex items-center gap-4 px-4 py-3.5 rounded-2xl text-slate-600 dark:text-slate-300 hover:bg-slate-50 dark:hover:bg-slate-800/50 transition-colors" 
+            className="flex items-center gap-4 px-4 py-3 rounded-2xl text-slate-600 dark:text-slate-300 hover:bg-slate-50 dark:hover:bg-slate-800/50 transition-colors" 
             to="/heritage" 
             onClick={onClose}
           >
@@ -93,7 +93,8 @@ const NavDrawer: React.FC<NavDrawerProps> = ({ isOpen, onClose }) => {
           </Link>
         </nav>
 
-        <div className="px-8 py-10 border-t border-slate-100 dark:border-slate-800 space-y-6">
+        {/* Bottom Section with shadow indicator */}
+        <div className="px-8 py-8 border-t border-slate-100 dark:border-slate-800 space-y-5 bg-background-light dark:bg-background-dark shadow-[0_-10px_20px_-5px_rgba(0,0,0,0.05)] dark:shadow-[0_-10px_20px_-5px_rgba(0,0,0,0.3)]">
           <div className="space-y-4">
             <Link 
               className="flex items-center gap-3 text-slate-500 dark:text-slate-400 hover:text-primary transition-colors" 
@@ -112,14 +113,14 @@ const NavDrawer: React.FC<NavDrawerProps> = ({ isOpen, onClose }) => {
               <span className="text-sm font-medium">Customer Support</span>
             </Link>
           </div>
-          <button className="flex items-center gap-3 text-red-500/80 hover:text-red-600 font-bold transition-colors pt-2">
+          <button className="flex items-center gap-3 text-red-500/80 hover:text-red-600 font-bold transition-colors pt-1">
             <span className="material-symbols-outlined text-[20px]">logout</span>
             <span className="text-sm">Logout</span>
           </button>
-        </div>
-        
-        <div className="px-8 pb-8">
-          <span className="text-[10px] text-slate-400 font-bold tracking-widest uppercase">Version 2.4.0</span>
+          
+          <div className="pt-2">
+            <span className="text-[10px] text-slate-400 font-bold tracking-widest uppercase">Version 2.4.0</span>
+          </div>
         </div>
       </aside>
     </div>
