@@ -1,6 +1,8 @@
-import React from 'react';
+import React, { useState } from 'react';
+import NavDrawer from '../components/NavDrawer';
 
 const Home: React.FC = () => {
+  const [isNavOpen, setIsNavOpen] = useState(false);
   const categories = [
     { icon: 'flare', name: 'Saffron', bg: 'bg-orange-100/50 dark:bg-orange-950/30', text: 'text-primary' },
     { icon: 'eco', name: 'Dry Fruits', bg: 'bg-amber-100/50 dark:bg-amber-950/30', text: 'text-amber-600 dark:text-amber-500' },
@@ -22,10 +24,14 @@ const Home: React.FC = () => {
 
   return (
     <div className="pb-32 bg-background-light dark:bg-background-dark min-h-screen font-display text-slate-900 dark:text-slate-100">
+      <NavDrawer isOpen={isNavOpen} onClose={() => setIsNavOpen(false)} />
       {/* Header */}
       <header className="sticky top-0 z-50 bg-background-light/80 dark:bg-background-dark/80 backdrop-blur-md px-5 pt-4 pb-2">
         <div className="flex items-center justify-between mb-4">
-          <button className="w-10 h-10 flex items-center justify-center rounded-full bg-surface-light dark:bg-surface-dark shadow-sm">
+          <button 
+            className="w-10 h-10 flex items-center justify-center rounded-full bg-surface-light dark:bg-surface-dark shadow-sm"
+            onClick={() => setIsNavOpen(true)}
+          >
             <span className="material-symbols-outlined text-slate-600 dark:text-slate-300 text-xl">menu</span>
           </button>
           <h1 className="text-lg font-bold tracking-tight">KashMart</h1>
