@@ -1,8 +1,10 @@
 import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import NavDrawer from '../components/NavDrawer';
 
 const Home: React.FC = () => {
   const [isNavOpen, setIsNavOpen] = useState(false);
+  const navigate = useNavigate();
   const categories = [
     { icon: 'flare', name: 'Saffron', bg: 'bg-orange-100/50 dark:bg-orange-950/30', text: 'text-primary' },
     { icon: 'eco', name: 'Dry Fruits', bg: 'bg-amber-100/50 dark:bg-amber-950/30', text: 'text-amber-600 dark:text-amber-500' },
@@ -221,7 +223,10 @@ const Home: React.FC = () => {
           <span className="material-symbols-outlined text-slate-400 group-hover:text-primary transition-colors">search</span>
           <span className="text-[10px] font-medium text-slate-400 group-hover:text-primary">Search</span>
         </button>
-        <button className="flex flex-col items-center gap-1 relative group">
+        <button 
+          onClick={() => navigate('/cart')}
+          className="flex flex-col items-center gap-1 relative group"
+        >
           <div className="absolute -top-1.5 -right-1.5 w-4 h-4 bg-primary text-white text-[9px] rounded-full flex items-center justify-center font-bold">3</div>
           <span className="material-symbols-outlined text-slate-400 group-hover:text-primary transition-colors">shopping_cart</span>
           <span className="text-[10px] font-medium text-slate-400 group-hover:text-primary">Cart</span>

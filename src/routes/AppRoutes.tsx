@@ -8,6 +8,7 @@ import SavedTreasures from '../pages/SavedTreasures';
 import HeritageStory from '../pages/HeritageStory';
 import Settings from '../pages/Settings';
 import CustomerSupport from '../pages/CustomerSupport';
+import Cart from '../pages/Cart';
 
 const AppRoutes: React.FC = () => {
   return (
@@ -21,6 +22,7 @@ const AppRoutes: React.FC = () => {
         <Route path="/heritage" element={<HeritageStory />} />
         <Route path="/settings" element={<Settings />} />
         <Route path="/support" element={<CustomerSupport />} />
+        <Route path="/cart" element={<Cart />} />
       </Routes>
     </Router>
   );
