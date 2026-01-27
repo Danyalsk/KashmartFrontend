@@ -28,7 +28,7 @@ const Cart: React.FC = () => {
   return (
     <div className="bg-background-light dark:bg-background-dark text-slate-900 dark:text-slate-100 min-h-screen flex justify-center font-display">
       <div className="w-full max-w-[430px] bg-background-light dark:bg-background-dark min-h-screen flex flex-col relative">
-        <header className="sticky top-0 z-20 bg-background-light/80 dark:bg-background-dark/80 backdrop-blur-md px-6 pt-12 pb-4 flex items-center justify-between">
+        <header className="relative bg-background-light dark:bg-background-dark px-6 pt-12 pb-4 flex items-center justify-between">
           <button 
             onClick={() => navigate(-1)}
             className="p-2 -ml-2 rounded-full hover:bg-slate-200 dark:hover:bg-slate-800 transition-colors"
