@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 
 interface NavDrawerProps {
@@ -7,6 +7,8 @@ interface NavDrawerProps {
 }
 
 const NavDrawer: React.FC<NavDrawerProps> = ({ isOpen, onClose }) => {
+  const [isShopOpen, setIsShopOpen] = useState(false);
+
   useEffect(() => {
     if (isOpen) {
       document.body.style.overflow = 'hidden';
@@ -20,8 +22,16 @@ const NavDrawer: React.FC<NavDrawerProps> = ({ isOpen, onClose }) => {
 
   if (!isOpen) return null;
 
+  const categories = [
+    { name: 'Saffron', icon: 'flare', path: '/shop/saffron' },
+    { name: 'Dry Fruits', icon: 'eco', path: '/shop/dry-fruits' },
+    { name: 'Teas', icon: 'coffee', path: '/shop/teas' },
+    { name: 'Honey', icon: 'add', path: '/shop/honey' },
+    { name: 'Spices', icon: 'grass', path: '/shop/spices' },
+  ];
+
   return (
-    <div className="fixed inset-0 z-50 overflow-hidden">
+    <div className="fixed inset-0 z-[100] overflow-hidden">
       {/* Backdrop */}
       <div 
         className="absolute inset-0 bg-black/40 backdrop-blur-[2px] transition-opacity" 
@@ -51,14 +61,35 @@ const NavDrawer: React.FC<NavDrawerProps> = ({ isOpen, onClose }) => {
             <span className="material-symbols-outlined font-variation-fill">home</span>
             <span className="font-bold text-[15px]">Home</span>
           </Link>
-          <Link 
-            className="flex items-center gap-4 px-4 py-3 rounded-2xl text-slate-600 dark:text-slate-300 hover:bg-slate-50 dark:hover:bg-slate-800/50 transition-colors" 
-            to="/shop" 
-            onClick={onClose}
-          >
-            <span className="material-symbols-outlined">grid_view</span>
-            <span className="font-semibold text-[15px]">Shop by Category</span>
-          </Link>
+          
+          <div>
+            <button 
+              className={`w-full flex items-center justify-between px-4 py-3 rounded-2xl transition-colors ${isShopOpen ? 'text-primary' : 'text-slate-600 dark:text-slate-300 hover:bg-slate-50 dark:hover:bg-slate-800/50'}`}
+              onClick={() => setIsShopOpen(!isShopOpen)}
+            >
+              <div className="flex items-center gap-4">
+                <span className="material-symbols-outlined">grid_view</span>
+                <span className="font-semibold text-[15px]">Shop by Category</span>
+              </div>
+              <span className={`material-symbols-outlined transition-transform duration-300 ${isShopOpen ? 'rotate-180' : ''}`}>expand_more</span>
+            </button>
+            
+            <div className={`overflow-hidden transition-all duration-300 ease-in-out ${isShopOpen ? 'max-h-64 opacity-100 mt-1' : 'max-h-0 opacity-0'}`}>
+              <div className="pl-12 space-y-1">
+                {categories.map((cat, idx) => (
+                  <Link 
+                    key={idx}
+                    className="flex items-center gap-3 py-2 text-slate-500 dark:text-slate-400 hover:text-primary transition-colors text-sm font-medium" 
+                    to={cat.path} 
+                    onClick={onClose}
+                  >
+                    <span className="material-symbols-outlined text-[18px]">{cat.icon}</span>
+                    <span>{cat.name}</span>
+                  </Link>
+                ))}
+              </div>
+            </div>
+          </div>
           <Link 
             className="flex items-center gap-4 px-4 py-3 rounded-2xl text-slate-600 dark:text-slate-300 hover:bg-slate-50 dark:hover:bg-slate-800/50 transition-colors" 
             to="/orders" 

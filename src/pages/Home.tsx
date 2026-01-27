@@ -26,7 +26,7 @@ const Home: React.FC = () => {
     <div className="pb-32 bg-background-light dark:bg-background-dark min-h-screen font-display text-slate-900 dark:text-slate-100">
       <NavDrawer isOpen={isNavOpen} onClose={() => setIsNavOpen(false)} />
       {/* Header */}
-      <header className="sticky top-0 z-50 bg-background-light/80 dark:bg-background-dark/80 backdrop-blur-md px-5 pt-4 pb-2">
+      <header className="relative bg-background-light dark:bg-background-dark px-5 pt-4 pb-2">
         <div className="flex items-center justify-between mb-4">
           <button 
             className="w-10 h-10 flex items-center justify-center rounded-full bg-surface-light dark:bg-surface-dark shadow-sm"
