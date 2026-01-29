@@ -140,7 +140,10 @@ const Cart: React.FC = () => {
         
         {items.length > 0 && (
           <footer className="fixed bottom-0 left-0 right-0 max-w-[430px] mx-auto bg-background-light/95 dark:bg-background-dark/95 backdrop-blur-lg border-t border-slate-200 dark:border-slate-800 px-5 pt-4 pb-10 z-30">
-            <button className="w-full bg-primary hover:bg-orange-600 text-white py-4 rounded-full font-bold text-lg shadow-lg shadow-primary/30 flex items-center justify-center gap-3 active:scale-95 transition-all">
+            <button 
+              onClick={() => navigate('/checkout')}
+              className="w-full bg-primary hover:bg-orange-600 text-white py-4 rounded-full font-bold text-lg shadow-lg shadow-primary/30 flex items-center justify-center gap-3 active:scale-95 transition-all"
+            >
               Proceed to Checkout
               <span className="material-symbols-outlined">arrow_forward</span>
             </button>

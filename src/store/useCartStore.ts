@@ -21,6 +21,8 @@ interface CartState {
   clearCart: () => void;
   getTotalPrice: () => number;
   getItemCount: () => number;
+  lastOrder: { items: CartItem[]; total: number; date: string } | null;
+  placeOrder: () => void;
 }
 
 export const useCartStore = create<CartState>()(
@@ -71,6 +73,19 @@ export const useCartStore = create<CartState>()(
       },
       getItemCount: () => {
         return get().items.reduce((count, item) => count + item.quantity, 0);
+      },
+      lastOrder: null,
+      placeOrder: () => {
+        const { items, getTotalPrice } = get();
+        const total = getTotalPrice();
+        set({
+          lastOrder: {
+            items: [...items],
+            total,
+            date: new Date().toLocaleDateString('en-US', { year: 'numeric', month: 'short', day: 'numeric' }),
+          },
+          items: [], // Clear cart after placing order
+        });
       },
     }),
     {

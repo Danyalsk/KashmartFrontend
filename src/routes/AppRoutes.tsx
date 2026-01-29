@@ -1,5 +1,8 @@
 import React from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import Checkout from '../pages/Checkout';
+import OrderSuccess from '../pages/OrderSuccess';
+import Profile from '../pages/Profile';
 import Home from '../pages/Home';
 import ShopByCategory from '../pages/ShopByCategory';
 import MyOrders from '../pages/MyOrders';
@@ -26,7 +29,11 @@ const AppRoutes: React.FC = () => {
         <Route path="/support" element={<CustomerSupport />} />
         <Route path="/cart" element={<Cart />} />
         <Route path="/curated" element={<Curated />} />
+        <Route path="/curated" element={<Curated />} />
         <Route path="/product/:id" element={<ProductDetails />} />
+        <Route path="/checkout" element={<Checkout />} />
+        <Route path="/order-success" element={<OrderSuccess />} />
+        <Route path="/profile" element={<Profile />} />
       </Routes>
     </Router>
   );

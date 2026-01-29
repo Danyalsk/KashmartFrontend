@@ -10,7 +10,6 @@ const BottomNav: React.FC = () => {
   const navItems = [
     { label: 'Home', icon: 'home', path: '/' },
     { label: 'Curated', icon: 'dashboard_customize', path: '/curated' },
-    { label: 'Explore', icon: 'explore', path: '/explore' },
     { label: 'Cart', icon: 'shopping_bag', path: '/cart', badge: cartCount > 0 ? cartCount : undefined },
     { label: 'Profile', icon: 'person_2', path: '/profile' },
   ];
